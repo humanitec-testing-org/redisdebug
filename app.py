@@ -9,7 +9,7 @@ redis_host = os.getenv("REDIS_MASTER_SERVICE_HOST")
 redis_port = os.getenv("REDIS_MASTER_SERVICE_PORT")
 
 redis_user = "user"
-redis_password = "CfHsTLIuQ6"
+redis_password = "3CZ314kV8U"
 
 
 @app.route('/')
@@ -24,7 +24,7 @@ def main():
 @app.route('/<parameter>')
 def hello_world(parameter=None):
     try:
-        r = redis.StrictRedis(host=redis_host, port=redis_port)
+        r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password)
         r.set("REDIS_MESSAGE", f"REDIS SAYS {parameter}")
         x = r.get("REDIS_MESSAGE")
 
